@@ -1,0 +1,9 @@
+
+docker-compose -f worker.yml up --scale worker=12 -d
+
+docker container ls
+
+docker exec -i -t CONTAINER_ID /bin/bash
+
+docker-compose -f worker.yml down
+

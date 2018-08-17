@@ -23,15 +23,7 @@ services:
       - "8081:8081"
     command: ["/usr/bin/supervisord", "--configuration=/opt/conf/master.conf"]
     environment:
-      - PYSPARK_PYTHON=ipython    
+      - PYSPARK_PYTHON=python3.6
+      - PYSPARK_DRIVER_PYTHON=ipython    
     volumes:
-      - "e:/analyticslab/data:/data"
-#---------------------------------------
-  worker:
-    build: .
-    command: ["/usr/bin/supervisord", "--configuration=/opt/conf/worker.conf"]
-    environment:
-      - PYSPARK_PYTHON=ipython
-    volumes:
-      - "e:/analyticslab/data:/data"
-      
+      - "data:/data"

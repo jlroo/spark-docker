@@ -1,4 +1,8 @@
 
+docker volume create --driver local --opt type=cifs --opt device=//10.41.19.200/analyticslab/data --opt o=username=analyticslab,password=analytics00! cme_data
+
+docker-compose -f worker.yml build
+
 docker-compose -f worker.yml up --scale worker=12 -d
 
 docker container ls
@@ -6,4 +10,5 @@ docker container ls
 docker exec -i -t CONTAINER_ID /bin/bash
 
 docker-compose -f worker.yml down
+
 

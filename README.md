@@ -1,10 +1,19 @@
-[here]:<https://www.anchormen.nl/spark-docker>
-[original post]: <https://www.anchormen.nl/spark-docker>
 # Spark Docker
-Instructions on building and running the Spark Docker image could be found in the original blog post, [here].
+Instructions on building and running the Spark Docker image on Centos7, with samba volume.
+
+## Create Volume cifs
+```docker volume create --driver local 
+						--opt type=cifs 
+						--opt device=//SAMBA_SERVER_IP/PATH_TO_DATA/data
+						--opt o=username=username,password=password VOLUME_NAME``````
+
 
 ## Running a Standalone Spark cluster using Docker-compose
-1. Build the image ```docker-compose build```
-2. Start up a Spark master and n slaves ```docker-compose up -d && docker-compose scale slave=n```; change n with the number of required slaves.
-3. check the created network by compose ```docker network ls``` and use the provided docker commands in the [original post: https://anchormen.nl/blog/big-data-services/spark-docker/ ] to run a spark-driver or an interactive spark-shell on top of the cluster.
-4. to destroy the cluster ```docker-compose down```
+1. Build the image worker image ```docker-compose build```
+2. Start up a Spark master and n workers ```docker-compose up --scale worker=n```
+3. Too destroy the cluster ```docker-compose down```
+
+## Running a Standalone Spark Cluster of workers docker-compose
+1. Build the worker image ```docker-compose -f worker.yml build```
+2. Start up a Spark workers ```docker-compose -f worker.yml --scale worker=n```
+3. To destroy the cluster of workers ```docker-compose -f worker.yml down```

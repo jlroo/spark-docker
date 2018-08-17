@@ -8,7 +8,6 @@ MAINTAINER jrodriguezorjuela@luc.edu
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 RUN yum -y update
 RUN yum -y install wget 
-RUN yum -y install nfs-utils
 RUN yum -y install java-1.8.0-openjdk
 RUN yum -y install java-1.8.0-openjdk-devel
 RUN yum install -y python36u python36u-libs python36u-devel python36u-pip

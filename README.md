@@ -2,11 +2,11 @@
 Instructions on building and running the Spark Docker image on Centos7, with samba volume.
 
 ## Create Volume cifs
-```docker volume create --driver local 
-						--opt type=cifs 
-						--opt device=//SAMBA_SERVER_IP/PATH_TO_DATA/data
-						--opt o=username=username,password=password VOLUME_NAME``````
 
+	docker volume create 	--driver local 
+				--opt type=cifs 
+				--opt device=//SAMBA_SERVER_IP/PATH_TO_DATA/data
+				--opt o=username=username,password=password VOLUME_NAME
 
 ## Running a Standalone Spark cluster using Docker-compose
 1. Build the image worker image ```docker-compose build```

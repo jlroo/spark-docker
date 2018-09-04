@@ -1,0 +1,8 @@
+//.netrc
+machine some_hostname
+   username  username
+   password  somepass
+   domain    optional
+   security  optional
+   fileMode  optional
+   dirMode   optional

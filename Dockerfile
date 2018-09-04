@@ -26,7 +26,7 @@ RUN rm -rf spark-2.3.1-bin-hadoop2.7.tgz get-pip.py
 #####adding conf files [to be used by supervisord for running spark master/worker]
 COPY conf/master.conf /opt/conf/master.conf
 COPY conf/worker.conf /opt/conf/worker.conf
-COPY .netrc /root/.netrc
+COPY conf/.netrc /root/.netrc
 RUN cp /opt/spark/conf/spark-env.sh.template /opt/spark/conf/spark-env.sh
 RUN echo "export PYSPARK_PYTHON=python3.6" >> /opt/spark/conf/spark-env.sh
 RUN echo "export PYSPARK_DRIVER_PYTHON=ipython" >> /opt/spark/conf/spark-env.sh
